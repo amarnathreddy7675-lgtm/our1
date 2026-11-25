@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@theme {
+  --color-navy: #080b1a;
+  --color-purple: #21133f;
+  --color-lavender: #a78bfa;
+  --color-pink: #f3a6c8;
+  --color-snow: #f8fafc;
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-hand: var(--font-caveat), cursive;
+}
+body {
+  background: radial-gradient(120% 80% at 50% -10%, #21133f 0%, #080b1a 60%) fixed;
+  color: var(--color-snow);
+  font-family: var(--font-sans);
+  min-height: 100dvh;
+}
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(167, 139, 250, 0.22);
+  backdrop-filter: blur(14px);
+  border-radius: 1.25rem;
+}
+:focus-visible { outline: 2px solid var(--color-pink); outline-offset: 3px; }
+@keyframes twinkle { 0%,100% { opacity: .25 } 50% { opacity: 1 } }
+.star { position: absolute; border-radius: 9999px; background: #fff; animation: twinkle 4s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { .star { animation: none; opacity: .6 } }
+
+@keyframes sheen { from { background-position: 200% 0 } to { background-position: -100% 0 } }
+.sheen { background: linear-gradient(110deg, transparent 35%, rgba(255,255,255,.4) 50%, transparent 65%); background-size: 200% 100%; animation: sheen 2.8s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .sheen { animation: none } }
